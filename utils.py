@@ -27,7 +27,7 @@ def sendMsgToNtfy(title,text,priority):
     url="https://push.ecust.icu/509-electric"
     headers={
         "Title":title,
-        "Priority":priority
+        "Priority":str(priority)
     }
     data=text
     requests.post(url=url,headers=headers,data=data)
