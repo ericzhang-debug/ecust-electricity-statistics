@@ -89,5 +89,5 @@ if not(PUSH_PLUS_TOKEN == "" or PUSH_PLUS_TOKEN==None or PUSH_PLUS_TOKEN=="error
     sendMsgToNtfy(
         f"{stime} 奉贤509电费统计",
         text,
-        4
+        str(4)
     )
