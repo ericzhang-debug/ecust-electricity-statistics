@@ -54,7 +54,7 @@ Path("data.js").write_text("data=" + originstring)
 
 if not(PUSH_PLUS_TOKEN == "" or PUSH_PLUS_TOKEN==None or PUSH_PLUS_TOKEN=="error"):
     from urllib.parse import urlparse, parse_qs
-    from utils import sendMsgToWechat
+    from utils import sendMsgToWechat,sendMsgToNtfy
     parsed_url = urlparse(url)
     params = parse_qs(parsed_url.query)
     roomid=params.get('roomid')
@@ -80,9 +80,14 @@ if not(PUSH_PLUS_TOKEN == "" or PUSH_PLUS_TOKEN==None or PUSH_PLUS_TOKEN=="error
     #show more
     # website="https://lxl66566.github.io/ecust-electricity-statistics"
     # text+=f"[图表显示更多数据]({website})\n"
-    sendMsgToWechat(
-        PUSH_PLUS_TOKEN,
-        f"{stime}华理电费统计",
+    # sendMsgToWechat(
+    #     PUSH_PLUS_TOKEN,
+    #     f"{stime}华理电费统计",
+    #     text,
+    #     "markdown"
+    #     )
+    sendMsgToNtfy(
+        f"{stime} 奉贤509电费统计",
         text,
-        "markdown"
-        )
+        4
+    )
