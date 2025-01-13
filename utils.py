@@ -22,3 +22,12 @@ def sendMsgToWechat(token:str,title:str,text:str,template:str) -> None :
                                     json.dumps(data).encode(encoding='utf-8')
                                     ),
                            )
+
+def sendMsgToNtfy(title,text,priority):
+    url="https://push.ecust.icu/509-electric"
+    headers={
+        "Title":title,
+        "Priority":priority
+    }
+    data=text
+    requests.post(url=url,headers=headers,data=data)
