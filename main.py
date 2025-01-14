@@ -67,12 +67,12 @@ if not(PUSH_PLUS_TOKEN == "" or PUSH_PLUS_TOKEN==None or PUSH_PLUS_TOKEN=="error
     data_str = content[start_index:end_index]
     data = json.loads(data_str)
     last_two_items = data[-10:] # get 10 latest
-    tablestr="| 序号 | 时间 | 剩余电量 |\n|---|---|---|\n"
+    tablestr="序号\t时间\t剩余电量\n"
     index=1
     for item in reversed(last_two_items):
-        tablestr+=f'| {index} | {item["time"]} | {item["kWh"]}kWh |\n'
+        tablestr+=f'{index}\t{item["time"]}\t{item["kWh"]}kWh\n'
         index+=1
-    text=f'## 当前剩余电量：{remain}kWh\n个人信息：{buildid[0]}号楼{roomid[0]}室\n\n统计时间：{stime}\n\n### 最近10天数据\n'
+    text=f'当前剩余电量：{remain}kWh\n个人信息：{buildid[0]}号楼{roomid[0]}室\n\n统计时间：{stime}\n\n----------------------- 最近10天数据:\n'
     text+=(tablestr+"\n")
     print(text)
     print(PUSH_PLUS_TOKEN)
