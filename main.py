@@ -72,7 +72,7 @@ if not(PUSH_PLUS_TOKEN == "" or PUSH_PLUS_TOKEN==None or PUSH_PLUS_TOKEN=="error
     for item in reversed(last_two_items):
         tablestr+=f'{index}\t{item["time"]}\t{item["kWh"]}kWh\n'
         index+=1
-    text=f'当前剩余电量：{remain}kWh\n个人信息：{buildid[0]}号楼{roomid[0]}室\n\n统计时间：{stime}\n\n-----------------------\n 最近10天数据:\n'
+    text=f'当前剩余电量：{remain}kWh\n位置信息：{buildid[0]}号楼{roomid[0]}室\n统计时间：{stime}\n-----------------------\n 最近10天数据:\n'
     text+=(tablestr+"\n")
     print(text)
     print(PUSH_PLUS_TOKEN)
@@ -87,7 +87,7 @@ if not(PUSH_PLUS_TOKEN == "" or PUSH_PLUS_TOKEN==None or PUSH_PLUS_TOKEN=="error
     #     "markdown"
     #     )
     sendMsgToNtfy(
-        f"{stime} 奉贤509电费统计",
+        f"{stime}奉贤509剩余{remain}度",
         text,
         str(4),
         '509-electric'
